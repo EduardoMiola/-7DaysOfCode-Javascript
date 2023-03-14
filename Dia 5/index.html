@@ -18,6 +18,14 @@
     <section class="container">
         <div class="input">
             <input class="insert" type="text" id="item" placeholder="Digite o item">
+            <form class="insertTipo" name="tipoDeItem" id="tipoDeItem">
+                Tipo de Item: <select name="tipo" id="tipo">
+                    <option class="insertTipoItem" value="alimento">Alimento</option>
+                    <option class="insertTipoItem" value="limpeza">Limpeza</option>
+                    <option class="insertTipoItem" value="higiene">Higiene</option>
+                    <option class="insertTipoItem" value="outros">Outros</option>
+                </select>
+            </form>
             <button class="insert_button" onclick="adicionar()">Adicionar</button>
         </div>
         <div class="submit">

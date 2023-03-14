@@ -2,6 +2,7 @@
     --primary-color: #fff;
     --secondary-color: #1f578b;
     --background-color: #317375;
+    --terciary-color: #000;
 }
 
 
@@ -33,7 +34,7 @@ body{
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    margin-top: 5%;
+    margin-top: 1.5%;
 }
 
 .insert{
@@ -41,6 +42,7 @@ body{
     border: 2px solid var(--primary-color);
     padding: 1% 1.5%;
     color: black;
+    margin: 10px;
 }
 
 .insert_button{
@@ -50,6 +52,15 @@ body{
     background-color: var(--primary-color);
     color: var(--secondary-color);
     margin-top: 1.2%;
+}
+
+.insertTipo{
+    border-radius: 18px;
+    border: 2px solid var(--primary-color);
+    padding: 1% 1.5%;
+    color: var(--terciary-color);
+    margin: 10px;
+    background-color: var(--primary-color);
 }
 
 .submit{
@@ -69,6 +80,18 @@ body{
     background-color: var(--primary-color);
     color: var(--secondary-color);
     margin-left: 20px;
+}
+
+.tituloItem{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 1.5%;
+    font-family: 'Roboto', sans-serif;
+    font-size: 2.0rem;
+    font-weight: 600;
+    border-bottom: 5px dotted var(--primary-color);
 }
 
 .listaItem{
