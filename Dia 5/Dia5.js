@@ -42,28 +42,31 @@ function limpar() {
     if(alimentos.length > 0){
       for (let i = 0; i < alimentos.length; i++) {
         document.getElementById("listaItem").remove();
-        document.getElementById("tituloItem").remove();
       }
     }
     if(limpeza.length > 0){
       for (let i = 0; i < limpeza.length; i++) {
         document.getElementById("listaItem").remove();
-        document.getElementById("tituloItem").remove();
       }
     }
     if(higiene.length > 0){
       for (let i = 0; i < higiene.length; i++) {
         document.getElementById("listaItem").remove();
-        document.getElementById("tituloItem").remove();
       }
     }
     if(outros.length > 0){
       for (let i = 0; i < outros.length; i++) {
         document.getElementById("listaItem").remove();
-        document.getElementById("tituloItem").remove();
       }
     }
     
+    if (document.getElementsByClassName("tituloItem").length > 0) {
+      for (let i = 0; i < document.getElementsByClassName("tituloItem").length; i++) {
+        document.getElementsByClassName("tituloItem")[i].remove();
+      }
+    }
+    
+
     alimentos = [];
     limpeza = [];
     higiene = [];
