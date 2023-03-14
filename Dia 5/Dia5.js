@@ -1,18 +1,7 @@
-let lista_de_itens = [];
-start();
-
-/**
- * Inicializa o site
- * @param if tiver algo salvo no localStorage, ele carrega
- * @param if não tiver nada salvo, ele inicia uma lista vazia
- * @call showLista()
- */
-function start() {
-  if (localStorage.getItem("lista") !== null) {
-    lista_de_itens = JSON.parse(localStorage.getItem("lista"));
-    showLista();
-  }
-}
+let alimentos = [];
+let limpeza = [];
+let higiene = [];
+let outros = [];
 
 /**
  * Adiciona um item na lista
@@ -21,8 +10,25 @@ function start() {
  * @return limpa o input
  */
 function adicionar() {
-    const item = document.getElementById("item").value;
-    lista_de_itens.push(item);
+    let item = document.getElementById("item").value;
+    let tipo = document.getElementById("tipo").value;
+    switch (tipo) {
+      case "alimento":
+        alimentos.push(item);
+        break;
+      case "limpeza":
+        limpeza.push(item);
+        break;
+      case "higiene":
+        higiene.push(item);
+        break;
+      case "outros":
+        outros.push(item);
+        break;
+      default:
+        console.error("Tipo inválido");
+    }
+
     document.getElementById("item").value = "";
 }
 
@@ -31,22 +37,37 @@ function adicionar() {
  * Limpa a lista
  * @param for percorre a lista
  * @param remove o primeiro filho da lista
- * 
  */
 function limpar() {
-    for (let i = 0; i < lista_de_itens.length; i++) {
-      document.getElementById("lista").removeChild(document.getElementById("lista").childNodes[0]);
+    if(alimentos.length > 0){
+      for (let i = 0; i < alimentos.length; i++) {
+        document.getElementById("listaItem").remove();
+        document.getElementById("tituloItem").remove();
+      }
     }
-    lista_de_itens = [];
-    localStorage.removeItem("lista");
-}
-
-/**
- * Salva a lista no localStorage
- * @param localStorage.setItem converte a lista em string
- */
-function salvar() {
-    localStorage.setItem("lista", JSON.stringify(lista_de_itens));
+    if(limpeza.length > 0){
+      for (let i = 0; i < limpeza.length; i++) {
+        document.getElementById("listaItem").remove();
+        document.getElementById("tituloItem").remove();
+      }
+    }
+    if(higiene.length > 0){
+      for (let i = 0; i < higiene.length; i++) {
+        document.getElementById("listaItem").remove();
+        document.getElementById("tituloItem").remove();
+      }
+    }
+    if(outros.length > 0){
+      for (let i = 0; i < outros.length; i++) {
+        document.getElementById("listaItem").remove();
+        document.getElementById("tituloItem").remove();
+      }
+    }
+    
+    alimentos = [];
+    limpeza = [];
+    higiene = [];
+    outros = [];
 }
 
 /**
@@ -60,12 +81,67 @@ function salvar() {
  * @param document.getElementById("lista").style.display = "block" mostra a lista
  */
 function showLista() {
-    const listaElemento = document.getElementById("lista");
-    for (let i = 0; i < lista_de_itens.length; i++) {
-      const itemElemento = document.createElement("li");
-      itemElemento.className = "listaItem";
-      itemElemento.innerHTML = lista_de_itens[i];
-      listaElemento.appendChild(itemElemento);
+    let listaElemento = document.getElementById("lista");
+
+    if (alimentos.length !== 0) {
+      let alimentoTitulo = document.createElement("h2");
+      alimentoTitulo.innerHTML = "Alimentos";
+      alimentoTitulo.className = "tituloItem";
+      listaElemento.appendChild(alimentoTitulo);
+
+      for (let i = 0; i < alimentos.length; i++) {
+        let itemElemento = document.createElement("li");
+        itemElemento.className = "listaItem";
+        itemElemento.id = "listaItem";
+        itemElemento.innerHTML = alimentos[i];
+        listaElemento.appendChild(itemElemento);
+      }
     }
+
+    if (limpeza.length !== 0) {
+      let limpezaTitulo = document.createElement("h2");
+      limpezaTitulo.innerHTML = "Limpeza";
+      limpezaTitulo.className = "tituloItem";
+      listaElemento.appendChild(limpezaTitulo);
+
+      for (let i = 0; i < limpeza.length; i++) {
+        let itemElemento = document.createElement("li");
+        itemElemento.className = "listaItem";
+        itemElemento.id = "listaItem";
+        itemElemento.innerHTML = limpeza[i];
+        listaElemento.appendChild(itemElemento);
+      }
+    }
+    
+    if (higiene.length !== 0) {
+      let higieneTitulo = document.createElement("h2");
+      higieneTitulo.innerHTML = "Higiene";
+      higieneTitulo.className = "tituloItem";
+      listaElemento.appendChild(higieneTitulo);
+    
+      for (let i = 0; i < higiene.length; i++) {
+        let itemElemento = document.createElement("li");
+        itemElemento.className = "listaItem";
+        itemElemento.id = "listaItem";
+        itemElemento.innerHTML = higiene[i];
+        listaElemento.appendChild(itemElemento);
+      }
+    }
+
+    if (outros.length !== 0) {
+      let outrosTitulo = document.createElement("h2");
+      outrosTitulo.innerHTML = "Outros";
+      outrosTitulo.className = "tituloItem";
+      listaElemento.appendChild(outrosTitulo);
+
+      for (let i = 0; i < outros.length; i++) {
+        let itemElemento = document.createElement("li");
+        itemElemento.className = "listaItem";
+        itemElemento.id = "listaItem";
+        itemElemento.innerHTML = outros[i];
+        listaElemento.appendChild(itemElemento);
+      }
+    }
+
     document.getElementById("lista").style.display = "block";
   }
