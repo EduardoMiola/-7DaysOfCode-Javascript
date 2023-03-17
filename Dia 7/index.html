@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora</title>
+    <script src="Dia7.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<header>
+    <nav class="menu">
+        <a>Calculadora</a>
+    </nav>
+</header>
+<body>
+    <main>  
+    <section class="container">
+        <div class="input">
+            <input class="insert" type="text" id="numero1" placeholder="Digite o primeiro número">
+            <input class="insert" type="text" id="numero2" placeholder="Digite o segundo número">
+            <button class="insert_button" onclick="somar()">Somar</button>
+            <button class="insert_button" onclick="subtrair()">Subtrair</button>
+            <button class="insert_button" onclick="multiplicar()">Multiplicar</button>
+            <button class="insert_button" onclick="dividir()">Dividir</button>
+        </div>
+    </section>
+    </main>
+        <div class="submit">
+            <button class="submit_button" onclick="limpar()">Limpar</button>
+        </div>
+        <section class="resultado" id="resultado">
+            
+
+        </section>
+</body>
+</html>
